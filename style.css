@@ -6,24 +6,42 @@
 
 @font-face {
   font-family: "Norse Bold";
-  src: url(./assets/fonts/Norse-Bold.otf);
+  src: url(./assets/fonts/Norse-Bold.otf) format("opentype");
 }
 
 /* GLOBAL */
 
 :root {
   font-size: 16px;
-  line-height: 1.5;
+  line-height: 1.4;
+  color: #333;
 
-  --h1: 2.986rem;
-  --h2: 2.488rem;
-  --h3: 2.074rem;
-  --h4: 1.728rem;
-  --h5: 1.44rem;
-  --h6: 1.2rem;
-  --p: 1rem;
-  --small: 0.833rem;
-  --x-small: 0.694rem;
+  --8xl: 5.159rem;
+  --7xl: 4.299rem;
+  --6xl: 3.5832rem;
+  --5xl: 2.986rem;
+  --4xl: 2.488rem;
+  --3xl: 2.074rem;
+  --2xl: 1.728rem;
+  --xl: 1.44rem;
+  --lg: 1.2rem;
+  --md: 1rem;
+  --sm: 0.833rem;
+  --xs: 0.694rem;
+  --2xs: 0.578rem;
+  --3xs: 0.482rem;
+  --4xs: 0.401rem;
+
+  /* Semantic font aliases */
+  --text-h1: var(--5xl);
+  --text-h2: var(--4xl);
+  --text-h3: var(--3xl);
+  --text-h4: var(--2xl);
+  --text-h5: var(--xl);
+  --text-h6: var(--lg);
+  --text-p: var(--md);
+  --text-sm: var(--sm);
+  --text-xs: var(--xs);
 }
 
 .sr-only:not(:focus):not(:active) {
@@ -51,26 +69,38 @@ a:hover {
 
 button {
   color: #fff;
-  font-size: var(--p);
-  padding: var(--x-small) var(--p);
+  font-size: var(--text-p);
+  padding: var(--sm) var(--2xl);
   background-color: hsl(230, 44%, 40%);
   border: 1px solid hsl(230, 44%, 16%);
   border-radius: 0.375rem;
+  transition: all ease-in 0.125s;
+  cursor: pointer;
+}
+
+button:hover {
+  color: hsl(230, 44%, 92%);
+  background-color: hsl(230, 44%, 32%);
+  border: 1px solid hsl(230, 44%, 8%);
+  transition: all ease-in 0.125s;
 }
 
 /* ELEMENTS */
 
 body {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: row-reverse;
   justify-content: flex-start;
   align-items: stretch;
 }
 
-main {
+/* Two Column: [ ] Image Column, [X] Content Column */
+
+.main-content {
   width: 64%;
+  padding: var(--4xl) 0;
   background-color: #fafafa;
 
   display: flex;
@@ -79,16 +109,20 @@ main {
   align-items: flex-start;
 }
 
-main > *:not(button) {
-  padding: 0 max(1rem, 4vw);
+.main-content > * {
+  padding-right: max(1rem, 4vw);
+  padding-left: max(1rem, 4vw);
 }
 
-main > button {
-  margin: 0 max(1rem, 4vw);
+.form-intro > * {
+  font-size: var(--text-h6);
+  text-wrap: balance;
 }
 
 form {
   width: 100%;
+  padding: max(1rem, 3vw) max(1rem, 4vw);
+  margin: var(--2xl) 0 var(--6xl) 0;
   background-color: #fff;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 
@@ -97,17 +131,81 @@ form {
   flex-wrap: wrap;
   justify-content: flex-start;
   align-items: stretch;
+  gap: max(1rem, 2vw);
+  row-gap: 1rem;
 }
 
-form > * {
-  width: calc(100% / 2);
+.form-heading {
+  font-size: var(--text-h4);
+  font-weight: bold;
+  width: 100%;
   padding: 0;
   margin: 0;
 }
 
-form > p:first-of-type {
-  width: 100%;
+.form-element {
+  position: relative;
+  width: calc((100% - max(1rem, 2vw)) / 2);
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
+
+.form-element > label {
+  color: #595959;
+  font-size: var(--text-xs);
+  text-transform: uppercase;
+  letter-spacing: 0.04rem;
+  margin: 0 0 var(--4xs) 0;
+}
+
+/* .form-element:has(input[type="password"]:invalid) > label {
+  color: #ff595e;
+} */
+
+.form-element > input {
+  width: 100%;
+  height: var(--3xl);
+  padding-left: var(--4xs);
+  border: 1px solid #949494;
+  border-radius: 3px;
+}
+
+input:focus {
+  border: 2px solid #4361ee;
+  box-shadow: rgba(67, 97, 238, 0.05) 0px 1px 0px,
+    rgba(67, 97, 238, 0.1) 0px 0px 8px;
+}
+
+input[type="password"]:invalid {
+  border-color: #ff595e;
+}
+
+.form-element:has(input[type="password"]:invalid)::before {
+  content: "Required Field";
+  position: absolute;
+  top: 0;
+  right: 0;
+  color: #ff595e;
+  font-size: var(--text-sm);
+}
+
+input[type="password"]:valid {
+  border-color: #90be6d;
+}
+
+/* .form-element > input:valid {
+  border-color: green;
+} */
+
+.submit-btn {
+  margin: 0 max(1rem, 4vw);
+}
+
+/* Two Column: [X] Image Column, [ ] Content Column */
 
 .logo-container {
   position: relative;
@@ -143,7 +241,7 @@ form > p:first-of-type {
   width: 100%;
   margin: 0 0 1rem 0;
   color: hsla(230, 90%, 88%, 0.72);
-  font-size: var(--small);
+  font-size: var(--text-sm);
   text-align: center;
 }
 
