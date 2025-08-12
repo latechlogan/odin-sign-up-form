@@ -8,7 +8,7 @@
   </head>
   <body>
     <main>
-      <h1>Create an Account</h1>
+      <h1 class="sr-only">Create an Account</h1>
       <p>
         This is not a real online service! You know you need something like this
         in your life to help you realize your deepest dreams. Sign up
@@ -19,28 +19,41 @@
       <form action="https://www.httpbin.org" method="post" id="sign-up-form">
         <p class="form-heading">Let's do this!</p>
 
-        <label for="first-name">First Name</label>
-        <input type="text" name="first-name" id="first-name" />
+        <p>
+          <label for="first-name">First Name</label>
+          <input type="text" name="first-name" id="first-name" />
+        </p>
 
-        <label for="last-name">Last Name</label>
-        <input type="text" name="last-name" id="last-name" />
+        <p>
+          <label for="last-name">Last Name</label>
+          <input type="text" name="last-name" id="last-name" />
+        </p>
 
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email" />
+        <p>
+          <label for="email">Email</label>
+          <input type="email" name="email" id="email" />
+        </p>
 
-        <label for="phone">Phone Number</label>
-        <input type="tel" name="phone" id="phone" />
+        <p>
+          <label for="phone">Phone Number</label>
+          <input type="tel" name="phone" id="phone" />
+        </p>
 
-        <label for="pwd">Password</label>
-        <input type="password" name="pwd" id="pwd" />
+        <p>
+          <label for="pwd">Password</label>
+          <input type="password" name="pwd" id="pwd" />
+        </p>
 
-        <label for="pwd-confirm">Confirm Password</label>
-        <input type="password" name="pwd-confirm" id="pwd-confirm" />
+        <p>
+          <label for="pwd-confirm">Confirm Password</label>
+          <input type="password" name="pwd-confirm" id="pwd-confirm" />
+        </p>
       </form>
 
       <button type="submit" form="sign-up-form">Create Account</button>
       <p>Already have an account? <a href="#">Log in</a></p>
     </main>
+
     <section class="logo-container">
       <img
         src="./assets/images/odin-lined.png"
