@@ -1,3 +1,25 @@
-h1 {
-  color: red;
+@import url(./modern-normalize.css);
+
+body {
+  width: 100vw;
+  /* height: 100vh; */
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+
+.logo-container {
+  position: relative;
+  width: 33%;
+  background-image: url(./assets/images/chris-ried-ieic5Tq8YMk-unsplash.jpg);
+}
+
+.logo-container::after {
+  content: "Photo by <a href="https://unsplash.com/@cdr6934?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Chris Ried</a> on <a href="https://unsplash.com/photos/a-computer-screen-with-a-bunch-of-code-on-it-ieic5Tq8YMk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
 }
