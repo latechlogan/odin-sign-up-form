@@ -1,25 +1,87 @@
 @import url(./modern-normalize.css);
 
+@font-face {
+  font-family: "Norse Bold";
+  src: url(./assets/fonts/Norse-Bold.otf);
+}
+
+:root {
+  font-size: 16px;
+  line-height: 1.5;
+
+  --h1: 2.986rem;
+  --h2: 2.488rem;
+  --h3: 2.074rem;
+  --h4: 1.728rem;
+  --h5: 1.44rem;
+  --h6: 1.2rem;
+  --p: 1rem;
+  --small: 0.833rem;
+  --x-small: 0.694rem;
+}
+
 body {
   width: 100vw;
-  /* height: 100vh; */
+  height: 100vh;
   display: flex;
   flex-direction: row-reverse;
   justify-content: flex-start;
   align-items: stretch;
 }
 
+main {
+  width: 64%;
+}
+
 .logo-container {
   position: relative;
-  width: 33%;
-  background-image: url(./assets/images/chris-ried-ieic5Tq8YMk-unsplash.jpg);
+  width: 36%;
+  padding: 0 0 0 0;
+  background-image: url(./assets/images/mohammad-rahmani-8qEB0fTe9Vw-unsplash.jpg);
+  background-position: 50% 0%;
+  background-size: cover;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-container::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: hsla(250, 80%, 10%, 0.625);
+  z-index: 1;
 }
 
 .logo-container::after {
-  content: "Photo by <a href="https://unsplash.com/@cdr6934?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Chris Ried</a> on <a href="https://unsplash.com/photos/a-computer-screen-with-a-bunch-of-code-on-it-ieic5Tq8YMk?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Unsplash</a>";
+  /* photo cred */
+  content: "Photo by Mohammad Rahmani on Unsplash";
   position: absolute;
   bottom: 0;
   left: 0;
+  z-index: 4;
   width: 100%;
+  margin: 0 0 1rem 0;
+  color: hsla(230, 90%, 82%, 0.8);
+  font-size: var(--small);
   text-align: center;
+}
+
+.logo-container__logo-img {
+  position: relative;
+  width: max(8vw, 4rem);
+  z-index: 2;
+}
+
+.logo-container__logo-text {
+  position: relative;
+  z-index: 3;
+  color: #fff;
+  font-family: "Norse Bold";
+  font-size: max(8vw, 4rem);
+  margin: 1rem 0 0 0;
 }
