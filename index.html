@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Odin | Sign-up Form</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <h1>Create an Account</h1>
+      <p>
+        This is not a real online service! You know you need something like this
+        in your life to help you realize your deepest dreams. Sign up
+        <em>now</em> to get started.
+      </p>
+      <p>You <em>know</em> you want to.</p>
+
+      <form action="https://www.httpbin.org" method="post" id="sign-up-form">
+        <p class="form-heading">Let's do this!</p>
+
+        <label for="first-name">First Name</label>
+        <input type="text" name="first-name" id="first-name" />
+
+        <label for="last-name">Last Name</label>
+        <input type="text" name="last-name" id="last-name" />
+
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" />
+
+        <label for="phone">Phone Number</label>
+        <input type="tel" name="phone" id="phone" />
+
+        <label for="pwd">Password</label>
+        <input type="password" name="pwd" id="pwd" />
+
+        <label for="pwd-confirm">Confirm Password</label>
+        <input type="password" name="pwd-confirm" id="pwd-confirm" />
+      </form>
+
+      <button type="submit" form="sign-up-form">Create Account</button>
+      <p>Already have an account? <a href="#">Log in</a></p>
+    </main>
+    <div></div>
+  </body>
+</html>
